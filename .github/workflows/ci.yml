@@ -21,8 +21,6 @@ jobs:
     - run: npm test -coverprofile=coverage.out
 
     - uses: SonarSource/sonarcloud-github-action@v2
-      with:
-        projectKey: your_sonarcloud_project_key
-        organization: your_sonarcloud_organization
       env:
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}  # Needed to get PR information, if any
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
